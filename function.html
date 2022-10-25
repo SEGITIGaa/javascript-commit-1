@@ -4,19 +4,23 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>commit | javascript</title>
     </head>
     <body>
         <p id="demo"></p>
         <p id="constructor"></p>
+        <p id="tambah"></p>
+        <div id="siswa"><p></p></div>
+        <br>
+        <div id="pamer"><p></p></div>
         <script>
 
           // function
-          function tambah(a,b) {
-            return a+b;
+          function kurang(a,b) {
+            return a-b;
           }
-          var pe = tambah(10,50);
-          document.getElementById("demo").innerHTML = "hasil penjumlahan : " + pe;
+          var pe = kurang(70,50);
+          document.getElementById("demo").innerHTML = "hasil pengurangan : " + pe;
 
 
           // constructor
@@ -32,6 +36,56 @@
           let hasil = new kali(4,5);
           document.getElementById("constructor").innerHTML= "hasil pengurangan : " + hasil.oprasi();
 
+
+          // tambah
+          class jumlah{
+            constructor(angka1, angka2){
+              this.angka1 = angka1;
+              this.angka2 = angka2;
+            }tambahin(){
+              return this.angka1 + this.angka2;
+            }
+          }
+          const result = new jumlah(10, 14);
+          document.getElementById("tambah").innerHTML= "hasil penjumlahan : " + result.tambahin();
+
+
+          class siswa{
+            constructor(absen,nama,kelas){
+              this.absen = absen;
+              this.nama = nama;
+              this.kelas = kelas;
+            }dataSiswa(){
+              let cetak = "absen :" + this.absen +  "<br> nama : " + this.nama + "<br>kelas : " + this.kelas;
+              return cetak;
+            }
+          }
+          const data = new siswa(12,"ilyas","xi rpl 2");
+          document.getElementById("siswa").innerHTML= data.dataSiswa();
+
+
+          // implementasi "extends" dengan analogi anak dan bapa
+          class bapa{
+            constructor(motor){
+              this.motor = motor;
+            }kalimat(){
+             let tampilkan =   'aku punya ' + this.motor;
+             return tampilkan;
+            }
+          }
+
+          class anak extends bapa{
+           constructor(motor,pemilik){
+            super(motor);
+            this.pemilik = pemilik;
+           }kalimatPamer(){
+             let print = this.kalimat() + " tapi milik " + this.pemilik;
+             return print;
+           }
+          }
+
+          let pamer = new anak("Nmax ", "ayah");
+          document.getElementById("pamer").innerHTML = pamer.kalimatPamer();
 
         </script>
     </body>

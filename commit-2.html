@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hewan</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+        class hewan{
+            constructor(nama,jenis){
+              this.nama = nama;
+              this.jenis = jenis;
+            }kalimat(){
+             let tampilkan =   'taukah kamu kalau ' + this.nama + 'termasuk kedalam' + this.jenis;
+             return tampilkan;
+            }
+          }
+
+          class habitat extends hewan{
+           constructor(nama,jenis,namaHabitat,lokasiHabitat){
+            super(nama,jenis);
+            this.namaHabitat = namaHabitat;
+            this.lokasiHabitat = lokasiHabitat;
+           }kalimatPamer(){
+             let print = this.kalimat() + " dan tinggal di  " + this.namaHabitat + " yg berlokasi di " + this.lokasiHabitat;
+             return print;
+           }
+          }
+
+          let pamer = new habitat(" buaya ", " reptil "," rawa "," hutan ");
+          document.getElementById("demo").innerHTML = pamer.kalimatPamer();
+
+    </script>
+</body>
+</html>
